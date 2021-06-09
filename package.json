@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/udit-329/rapyd-hackathon.git",
   "author": "KnlnKS <soulkks@hotmail.ca>",
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "widget",
+    "api"
+  ]
 }
