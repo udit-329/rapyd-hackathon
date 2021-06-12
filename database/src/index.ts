@@ -1,9 +1,25 @@
-import express from 'express'
+import express from "express";
+import mongoose from "mongoose";
 
-const app = express()
+import { productRoute } from "./routes";
 
-app.get('/', (_, res) => {
-  res.status(200).send()
+const app = express();
+
+app.use(express.json());
+
+const uri =
+  "mongodb+srv://hackathon:hackathon@cluster0.gt9xh.mongodb.net/rapyd?retryWrites=true&w=majority";
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+  useUnifiedTopology: true,
 })
 
-app.listen(2001, () => console.log(`Running on port ${2001}`))
+app.use(productRoute);
+
+app.get("/", (_, res) => {
+  res.status(200).send();
+});
+
+app.listen(2001, () => console.log(`Running on port ${2001}`));
