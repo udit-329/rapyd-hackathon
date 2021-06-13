@@ -202,6 +202,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@rollup/plugin-replace", [
+        ["npm:2.4.2", {
+          "packageLocation": "./.yarn/cache/@rollup-plugin-replace-npm-2.4.2-86e64ab79f-b8532ce340.zip/node_modules/@rollup/plugin-replace/",
+          "packageDependencies": [
+            ["@rollup/plugin-replace", "npm:2.4.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:2.4.2", {
+          "packageLocation": "./.yarn/$$virtual/@rollup-plugin-replace-virtual-8c7104f777/0/cache/@rollup-plugin-replace-npm-2.4.2-86e64ab79f-b8532ce340.zip/node_modules/@rollup/plugin-replace/",
+          "packageDependencies": [
+            ["@rollup/plugin-replace", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:2.4.2"],
+            ["@rollup/pluginutils", "virtual:6295a881566baa2315d9bd0a693bfe386013c1d8266cf41148454e23ab9eccd56d20aa7d2efea32e702a763700cafd6cb1c493eae4eefd93bb78b22de09c18d7#npm:3.1.0"],
+            ["@types/rollup", null],
+            ["magic-string", "npm:0.25.7"],
+            ["rollup", "npm:2.51.1"]
+          ],
+          "packagePeers": [
+            "@types/rollup",
+            "rollup"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@rollup/plugin-typescript", [
         ["npm:8.2.1", {
           "packageLocation": "./.yarn/cache/@rollup-plugin-typescript-npm-8.2.1-77595c210a-87f0a8308c.zip/node_modules/@rollup/plugin-typescript/",
@@ -365,6 +389,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["@types/connect", "npm:3.4.34"],
             ["@types/node", "npm:15.12.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/cors", [
+        ["npm:2.8.10", {
+          "packageLocation": "./.yarn/cache/@types-cors-npm-2.8.10-53b686e0da-c3f3d6feee.zip/node_modules/@types/cors/",
+          "packageDependencies": [
+            ["@types/cors", "npm:2.8.10"]
           ],
           "linkType": "HARD",
         }]
@@ -1369,6 +1402,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["cors", [
+        ["npm:2.8.5", {
+          "packageLocation": "./.yarn/cache/cors-npm-2.8.5-c9935a2d12-c83e88c154.zip/node_modules/cors/",
+          "packageDependencies": [
+            ["cors", "npm:2.8.5"],
+            ["object-assign", "npm:4.1.1"],
+            ["vary", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["cross-spawn", [
         ["npm:7.0.3", {
           "packageLocation": "./.yarn/cache/cross-spawn-npm-7.0.3-e4ff3e65b3-51f10036f5.zip/node_modules/cross-spawn/",
@@ -1387,9 +1431,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["database", "workspace:database"],
             ["@typegoose/typegoose", "virtual:03d23b8db935acb0eadcf2b89acba10457b3561f69777958cef5b4cedbb9ecb1e23e0426275265d835ff76d7fc202d462f6d72f524b27ae6291b54288d009c0a#npm:7.6.1"],
+            ["@types/cors", "npm:2.8.10"],
             ["@types/express", "npm:4.17.12"],
             ["@types/mongoose", "npm:5.10.5"],
             ["@types/node", "npm:15.12.2"],
+            ["cors", "npm:2.8.5"],
             ["express", "npm:4.17.1"],
             ["mongoose", "npm:5.10.8"],
             ["typescript", "patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b"]
@@ -3345,6 +3391,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rapyd-widget", "workspace:widget"],
             ["@rollup/plugin-commonjs", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:17.1.0"],
             ["@rollup/plugin-node-resolve", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:11.2.1"],
+            ["@rollup/plugin-replace", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:2.4.2"],
             ["@rollup/plugin-typescript", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:8.2.1"],
             ["@tsconfig/svelte", "npm:2.0.1"],
             ["@types/rimraf", "npm:3.0.0"],

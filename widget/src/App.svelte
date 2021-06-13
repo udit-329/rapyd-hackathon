@@ -1,21 +1,35 @@
 <script lang="ts">
-  export let name: string;
+  import type { ProductResponse } from "../types";
+  export let _id: string;
+
+  const fetchData = (async (): Promise<ProductResponse> =>
+    await (await fetch(`http://localhost:2001/product/${_id}`)).json())();
 </script>
 
 <div>
-  <h1>Hello {name}!</h1>
-  <p>
-    Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn
-    how to build Svelte apps.
-  </p>
+  {#await fetchData}
+    <p>...waiting</p>
+  {:then data}
+    <img src={data.product.images[0]} alt={data.product.name} />
+    <p>
+      Product id is: {_id}
+    </p>
+  {:catch error}
+    <p>An error occurred!</p>
+  {/await}
 </div>
 
 <style>
   div {
     text-align: center;
     padding: 1em;
-    max-width: 240px;
+    max-width: 250px;
     margin: 0 auto;
+  }
+
+  img {
+    max-width: 250px;
+    max-height: 250px;
   }
 
   h1 {
