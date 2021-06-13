@@ -14,7 +14,7 @@ mongoose.connect(uri, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
-})
+});
 
 app.use(productRoute);
 
