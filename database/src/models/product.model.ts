@@ -1,19 +1,19 @@
-import { prop, getModelForClass, Ref } from "@typegoose/typegoose";
+import { prop, getModelForClass, Ref, mongoose } from "@typegoose/typegoose";
 
 export class Product {
-  @prop({ type: () => String })
+  @prop({ required: true, type: String })
   public name: string;
 
-  @prop({ type: () => String })
+  @prop({ required: true, type: String })
   public description: string;
 
-  @prop({ type: () => [String] })
-  public images: string[];
+  @prop({ required: true, type: Array, default: [] })
+  public images: mongoose.Types.Array<string>;
 
-  @prop({ type: () => Number, min: 0})
+  @prop({ required: true, type: Number, min: 0 })
   public price: number;
 }
 
 const ProductModel = getModelForClass(Product);
 
-export default ProductModel
+export default ProductModel;

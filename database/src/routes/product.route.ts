@@ -26,9 +26,8 @@ app.get("/products", async (request, response) => {
 
 app.post("/product", async (request, response) => {
   const product = new ProductModel(request.body);
-
   try {
-    await product.save();
+    await product.save()
     response.send(product);
   } catch (error) {
     response.status(500).send(product);
