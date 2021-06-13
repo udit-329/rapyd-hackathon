@@ -23,6 +23,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         "reference": "workspace:."
       },
       {
+        "name": "payments-api",
+        "reference": "workspace:api"
+      },
+      {
         "name": "database",
         "reference": "workspace:database"
       },
@@ -35,6 +39,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
       ["database", ["workspace:database"]],
+      ["payments-api", ["workspace:api"]],
       ["rapyd-hackathon", ["workspace:."]],
       ["rapyd-widget", ["workspace:widget"]]
     ],
@@ -3205,6 +3210,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["path-type", "npm:4.0.0"]
           ],
           "linkType": "HARD",
+        }]
+      ]],
+      ["payments-api", [
+        ["workspace:api", {
+          "packageLocation": "./api/",
+          "packageDependencies": [
+            ["payments-api", "workspace:api"],
+            ["@types/cors", "npm:2.8.10"],
+            ["@types/express", "npm:4.17.12"],
+            ["@types/node", "npm:15.12.2"],
+            ["cors", "npm:2.8.5"],
+            ["express", "npm:4.17.1"],
+            ["typescript", "patch:typescript@npm%3A4.3.2#builtin<compat/typescript>::version=4.3.2&hash=ddfc1b"]
+          ],
+          "linkType": "SOFT",
         }]
       ]],
       ["picomatch", [
