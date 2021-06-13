@@ -441,6 +441,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["@types/glob", [
+        ["npm:7.1.3", {
+          "packageLocation": "./.yarn/cache/@types-glob-npm-7.1.3-44516e2aab-633bf1dda9.zip/node_modules/@types/glob/",
+          "packageDependencies": [
+            ["@types/glob", "npm:7.1.3"],
+            ["@types/minimatch", "npm:3.0.4"],
+            ["@types/node", "npm:15.12.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["@types/http-cache-semantics", [
         ["npm:4.0.0", {
           "packageLocation": "./.yarn/cache/@types-http-cache-semantics-npm-4.0.0-000c9dc8e0-e16fae56d4.zip/node_modules/@types/http-cache-semantics/",
@@ -465,6 +476,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-mime-npm-1.3.2-ea71878ab3-c354bc1356.zip/node_modules/@types/mime/",
           "packageDependencies": [
             ["@types/mime", "npm:1.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/minimatch", [
+        ["npm:3.0.4", {
+          "packageLocation": "./.yarn/cache/@types-minimatch-npm-3.0.4-f1932169cb-abbe7031d8.zip/node_modules/@types/minimatch/",
+          "packageDependencies": [
+            ["@types/minimatch", "npm:3.0.4"]
           ],
           "linkType": "HARD",
         }]
@@ -549,6 +569,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-responselike-npm-1.0.0-85dd08af42-e6e6613c80.zip/node_modules/@types/responselike/",
           "packageDependencies": [
             ["@types/responselike", "npm:1.0.0"],
+            ["@types/node", "npm:15.12.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/rimraf", [
+        ["npm:3.0.0", {
+          "packageLocation": "./.yarn/cache/@types-rimraf-npm-3.0.0-8a09fb283d-00a00a430f.zip/node_modules/@types/rimraf/",
+          "packageDependencies": [
+            ["@types/rimraf", "npm:3.0.0"],
+            ["@types/glob", "npm:7.1.3"],
             ["@types/node", "npm:15.12.2"]
           ],
           "linkType": "HARD",
@@ -3338,6 +3369,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-node-resolve", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:11.2.1"],
             ["@rollup/plugin-typescript", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:8.2.1"],
             ["@tsconfig/svelte", "npm:2.0.1"],
+            ["@types/rimraf", "npm:3.0.0"],
+            ["rimraf", "npm:3.0.2"],
             ["rollup", "npm:2.51.1"],
             ["rollup-plugin-css-only", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:3.1.0"],
             ["rollup-plugin-livereload", "npm:2.0.0"],
