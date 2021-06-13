@@ -1,10 +1,13 @@
 import express from "express";
 import mongoose from "mongoose";
+import cors from "cors"
 
 import { productRoute } from "./routes";
 
 const app = express();
 
+app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 
 const uri =
