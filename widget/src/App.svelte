@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { ProductResponse } from "../types";
+  import type { ProductResponse } from "./types";
   export let _id: string;
 
   const fetchData = (async (): Promise<ProductResponse> =>
