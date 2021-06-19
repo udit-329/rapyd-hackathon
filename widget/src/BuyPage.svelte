@@ -6,28 +6,28 @@
     import { createEventDispatcher } from 'svelte';
 
     const dispatch = createEventDispatcher();
-    
-    function closePopup() { 
+
+    function closePopup() {
         dispatch('closePopup', {
             text: 'close'
         });
     }
 
-    function goBack() { 
+    function goBack() {
         dispatch('goBack', {
             text: 'back'
         });
     }
 
-    function AddProduct() { 
+    function AddProduct() {
         prodCount += 1
     }
 
-    function RemoveProduct() { 
+    function RemoveProduct() {
         if (prodCount >= 1){
             prodCount -= 1
         }
-        
+
     }
 </script>
 
@@ -53,6 +53,6 @@ img {
         <button class="inner" on:click={RemoveProduct}>-</button>
     </span>
     <button class="buy-btn">buy</button>
-   
+
     <!-- <p>Product id is {productId}</p> -->
 </div>
