@@ -1,7 +1,10 @@
 import { writable } from "svelte/store";
 
-export default (key) => {
-  const store = writable(localStorage.getItem(key) || []);
-  store.subscribe((val) => localStorage.setItem(key, val));
+export const createStore = (key) => {
+  const store = writable(JSON.parse(localStorage.getItem(key)) || []);
+  store.subscribe((val) => {
+    if (JSON.stringify(val) !== "[]")
+      localStorage.setItem(key, [JSON.stringify(val)]);
+  });
   return store;
 };
