@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { ProductResponse } from "./types";
-  import Popup from './Popup.svelte';
+  import Popup from './components/Popup.svelte';
   export let _id: string;
 
   let ProductClicked = false;
