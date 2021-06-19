@@ -1,10 +1,9 @@
 <script lang="ts">
   import type { ProductResponse } from "./types";
-  import Popup from './Popup.svelte';
+  import Popup from './components/Popup.svelte';
   export let _id: string;
 
   let ProductClicked = false;
-  let prodCount = 0
 
   const fetchData = (async (): Promise<ProductResponse> =>
     await (await fetch(`http://localhost:2001/product/${_id}`)).json())();
@@ -31,7 +30,7 @@
 
     <button class="btn" on:click = {showProduct}>Buy</button>
     {#if ProductClicked}
-      <Popup productId={_id} imgSrc={data.product.images[0]} prodCount={prodCount} on:closePopup={close}></Popup>
+      <Popup productId={_id} imgSrc={data.product.images[0]} on:closePopup={close}></Popup>
     {/if}
 
   {:catch error}

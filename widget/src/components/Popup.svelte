@@ -1,7 +1,6 @@
 <script>
     export let productId;
     export let imgSrc;
-    export let prodCount;
 
     import { createEventDispatcher } from 'svelte';
     import ProductPage from './ProductPage.svelte';
@@ -22,7 +21,7 @@
         ProductPageOpen = !ProductPageOpen
         BuyPageOpen = !BuyPageOpen
     }
-    
+
 </script>
 
 <style>
@@ -43,9 +42,9 @@
     {#if ProductPageOpen}
         <ProductPage productId={productId} imgSrc={imgSrc} on:closePopup={closePopup} on:buyProduct={productPageChange}></ProductPage>
     {/if}
-    
+
     {#if BuyPageOpen}
-        <BuyPage productId={productId} imgSrc={imgSrc} prodCount={prodCount} on:closePopup={closePopup} on:goBack={productPageChange}></BuyPage>
+        <BuyPage productId={productId} imgSrc={imgSrc} on:closePopup={closePopup} on:goBack={productPageChange}></BuyPage>
     {/if}
 
 </div>
