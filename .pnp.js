@@ -1573,15 +1573,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
-      ["degit", [
-        ["npm:2.8.4", {
-          "packageLocation": "./.yarn/cache/degit-npm-2.8.4-0179eb13a7-4ff7905136.zip/node_modules/degit/",
-          "packageDependencies": [
-            ["degit", "npm:2.8.4"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
       ["delegates", [
         ["npm:1.0.0", {
           "packageLocation": "./.yarn/cache/delegates-npm-1.0.0-9b1942d75f-7459e34d29.zip/node_modules/delegates/",
@@ -3475,7 +3466,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-typescript", "virtual:7e3894d7b398c25b08f9ada9ac0549b0b3b327e155593ea83a5abbb442c3babb0255df626876034f3ae4d88b317ba2fdd1772db4d2a917aafcffab8fcaec85dc#npm:8.2.1"],
             ["@tsconfig/svelte", "npm:2.0.1"],
             ["@types/rimraf", "npm:3.0.0"],
-            ["degit", "npm:2.8.4"],
             ["rimraf", "npm:3.0.2"],
             ["rollup", "npm:2.51.1"],
             ["rollup-plugin-livereload", "npm:2.0.0"],

@@ -27,7 +27,6 @@
     "typescript": "^4.0.0"
   },
   "dependencies": {
-    "degit": "^2.8.4",
     "sirv-cli": "^1.0.0"
   }
 }

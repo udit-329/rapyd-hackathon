@@ -1240,15 +1240,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"degit@npm:^2.8.4":
-  version: 2.8.4
-  resolution: "degit@npm:2.8.4"
-  bin:
-    degit: degit
-  checksum: 4ff79051369d968a292328768648eecdc0b30da582c773a79f4bf5923b72782c7f5e6c664e2f147373a583ae0c298d494079963c2b8ffff78c471718b3c02564
-  languageName: node
-  linkType: hard
-
 "delegates@npm:^1.0.0":
   version: 1.0.0
   resolution: "delegates@npm:1.0.0"
@@ -2887,7 +2878,6 @@ fsevents@~2.3.1:
     "@rollup/plugin-typescript": ^8.0.0
     "@tsconfig/svelte": ^2.0.0
     "@types/rimraf": ^3
-    degit: ^2.8.4
     rimraf: ^3.0.2
     rollup: ^2.3.4
     rollup-plugin-livereload: ^2.0.0
