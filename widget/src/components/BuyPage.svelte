@@ -1,7 +1,7 @@
 <script>
     export let productId;
     export let imgSrc;
-    export let prodCount;
+    let prodCount = 0;
 
     import { createEventDispatcher } from 'svelte';
 
