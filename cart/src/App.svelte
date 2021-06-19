@@ -15,7 +15,7 @@
 </script>
 
 <div>
-    <button class="btn" on:click = {showProduct}>Buy</button>
+    <button class="btn" on:click = {showProduct}>Cart</button>
     {#if ProductClicked}
       <Popup on:closePopup={close}></Popup>
     {/if}
