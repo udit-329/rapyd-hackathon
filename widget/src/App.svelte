@@ -1,10 +1,8 @@
 <script lang="ts">
   import type { ProductResponse } from "./types";
-  export let _id: string;
-
   import Popup from './Popup.svelte';
-
   export let _id: string;
+
   let ProductClicked = false;
   let prodCount = 0
 
