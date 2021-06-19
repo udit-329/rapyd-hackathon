@@ -1,15 +1,28 @@
 <script>
     export let productId;
     export let imgSrc;
+    export let prodCount;
 
     import { createEventDispatcher } from 'svelte';
+    import ProductPage from './ProductPage.svelte';
+    import BuyPage from './BuyPage.svelte';
+
     const dispatch = createEventDispatcher();
+
+    let ProductPageOpen = true;
+    let BuyPageOpen = false;
 
     function closePopup() {
         dispatch('closePopup', {
             text: 'close'
         });
     }
+
+    function productPageChange() {
+        ProductPageOpen = !ProductPageOpen
+        BuyPageOpen = !BuyPageOpen
+    }
+    
 </script>
 
 <style>
@@ -24,17 +37,15 @@
     left: 10%;
     right: 10%;
 }
-
-img {
-    height: 30vh;
-    width: auto;
-}
 </style>
 
 <div class="box">
-    <button class="close" on:click={closePopup}>X</button>
-    <h1>test</h1>
-    <img src={imgSrc} alt={productId}>
-    <p>Product id is {productId}</p>
+    {#if ProductPageOpen}
+        <ProductPage productId={productId} imgSrc={imgSrc} on:closePopup={closePopup} on:buyProduct={productPageChange}></ProductPage>
+    {/if}
+    
+    {#if BuyPageOpen}
+        <BuyPage productId={productId} imgSrc={imgSrc} prodCount={prodCount} on:closePopup={closePopup} on:goBack={productPageChange}></BuyPage>
+    {/if}
 
 </div>
