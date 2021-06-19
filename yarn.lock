@@ -2881,7 +2881,7 @@ fsevents@~2.3.1:
     rimraf: ^3.0.2
     rollup: ^2.3.4
     rollup-plugin-livereload: ^2.0.0
-    rollup-plugin-svelte: ^7.0.0
+    rollup-plugin-svelte: ^7.1.0
     rollup-plugin-terser: ^7.0.0
     sirv-cli: ^1.0.0
     svelte: ^3.0.0
@@ -3057,7 +3057,7 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
-"rollup-plugin-svelte@npm:^7.0.0":
+"rollup-plugin-svelte@npm:^7.1.0":
   version: 7.1.0
   resolution: "rollup-plugin-svelte@npm:7.1.0"
   dependencies:
