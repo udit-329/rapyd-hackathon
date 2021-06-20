@@ -34,13 +34,10 @@
   }
 
   function removeProduct() {
-    if (prodCount >= 1) {
-      let index = getIndex();
+    let index = getIndex();
+    if (prodCount >= 1 && index >= 0) {
       prodCount -= 1;
-
-      if (index >= 0 && prodCount > 1) {
-        $cart[index].prodCount = prodCount;
-      } else $cart.splice(index, 1);
+      $cart[index].prodCount = prodCount;
     }
   }
 </script>
