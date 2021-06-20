@@ -42,7 +42,6 @@
     left: 0;
   }
   .cart {
-    z-index: 25;
     position: fixed;
     border-radius: 25px 0 0 25px;
     width: 30vw;

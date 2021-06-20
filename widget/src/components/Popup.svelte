@@ -60,6 +60,7 @@
   }
 
   .widget-popup-wrapper {
+    z-index: 25;
     position: fixed;
     right: 0;
     top: 0;
