@@ -12,12 +12,6 @@
   let prodCount = 0;
   if (index > -1) prodCount = $cart[index].prodCount;
 
-  function closePopup() {
-    dispatch("closePopup", {
-      text: "close",
-    });
-  }
-
   function goBack() {
     dispatch("goBack", {
       text: "back",
@@ -42,7 +36,6 @@
 </script>
 
 <div class="buy">
-  <button class="close-btn" on:click={closePopup}>X</button>
   <h1>Cart</h1>
   <button class="back-btn" on:click={goBack}>back</button>
   <img src={product.images[0]} alt={product.name} />
