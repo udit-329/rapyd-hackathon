@@ -27,7 +27,7 @@
     </div>
 
     {#each $cart as product}
-      <div>{product.productId}</div>
+      <div>{product.name}</div>
       <div>{`Count: ${product.prodCount}`}</div>
     {/each}
   </div>

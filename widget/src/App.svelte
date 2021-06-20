@@ -24,18 +24,14 @@
 {:then data}
   <div class="product-widget">
     <img src={data.product.images[0]} alt={data.product.name} />
-      <h3>
-        {data.product.name}
-      </h3>
-      <div class="product-widget-header" on:click={showProduct}>Buy</div>
+    <h3>
+      {data.product.name}
+    </h3>
+    <div class="product-widget-header" on:click={showProduct}>Buy</div>
   </div>
 
   {#if ProductClicked}
-    <Popup
-      productId={_id}
-      imgSrc={data.product.images[0]}
-      on:closePopup={close}
-    />
+    <Popup product={data.product} on:closePopup={close} />
   {/if}
 {:catch error}
   <p>An error occurred!</p>
@@ -55,7 +51,7 @@
     padding: 1em 0 0 0;
   }
 
-  .product-widget-header{
+  .product-widget-header {
     border-radius: 0 0 25px 25px;
     background-color: #2b49ee;
     color: #fff;

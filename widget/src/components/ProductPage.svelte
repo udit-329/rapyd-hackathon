@@ -1,6 +1,5 @@
 <script>
-    export let productId;
-    export let imgSrc;
+    export let product
 
     import { createEventDispatcher } from 'svelte';
 
@@ -31,6 +30,6 @@
     <button class="close-btn" on:click={closePopup}>X</button>
     <h1>Product</h1>
     <button class="buy-btn" on:click={buyProduct}>Buy</button>
-    <img src={imgSrc} alt={productId}>
-    <p>Product id is {productId}</p>
+    <img src={product.images[0]} alt={product.name}>
+    <p>{product.name}</p>
 </div>

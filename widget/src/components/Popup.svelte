@@ -1,6 +1,5 @@
 <script>
-    export let productId;
-    export let imgSrc;
+    export let product
 
     import { createEventDispatcher } from 'svelte';
     import ProductPage from './ProductPage.svelte';
@@ -10,6 +9,8 @@
 
     let ProductPageOpen = true;
     let BuyPageOpen = false;
+
+    console.log(product)
 
     function closePopup() {
         dispatch('closePopup', {
@@ -40,11 +41,11 @@
 
 <div class="box">
     {#if ProductPageOpen}
-        <ProductPage productId={productId} imgSrc={imgSrc} on:closePopup={closePopup} on:buyProduct={productPageChange}></ProductPage>
+        <ProductPage product={product} on:closePopup={closePopup} on:buyProduct={productPageChange}></ProductPage>
     {/if}
 
     {#if BuyPageOpen}
-        <BuyPage productId={productId} imgSrc={imgSrc} on:closePopup={closePopup} on:goBack={productPageChange}></BuyPage>
+        <BuyPage product={product} on:closePopup={closePopup} on:goBack={productPageChange}></BuyPage>
     {/if}
 
 </div>
