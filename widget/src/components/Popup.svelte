@@ -55,8 +55,8 @@
     height: 60%;
     border-radius: 25px;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -webkit-animation: slide 1s forwards;
-    animation: slide 1s forwards;
+    -webkit-animation: slide 0.7s forwards;
+    animation: slide 0.7s forwards;
   }
 
   .widget-popup-wrapper {
