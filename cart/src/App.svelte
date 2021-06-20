@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Popup from "./components/Popup.svelte";
+  import Cart from "./components/Cart.svelte";
 
   let cartOpened = false;
   let toggle = () => (cartOpened = !cartOpened);
@@ -7,7 +7,7 @@
 
 <div>
   {#if cartOpened}
-    <Popup on:closePopup={toggle} />
+    <Cart on:closeCart={toggle} />
   {:else}
     <div class="cart-button" on:click={toggle}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#000000"
