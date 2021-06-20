@@ -61,17 +61,11 @@
     100% {
       right: 0;
     }
-    0% {
-      right: -40vw;
-    }
   }
 
   @keyframes slide {
     100% {
       right: 0;
-    }
-    0% {
-      right: -40vw;
     }
   }
   .cart-exit:hover {
