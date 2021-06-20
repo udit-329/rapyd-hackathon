@@ -5,13 +5,8 @@ import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import sveltePreprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
-import replace from "@rollup/plugin-replace";
 
 const production = !process.env.ROLLUP_WATCH;
-const _id = process.env._id;
-
-if (!_id)
-  throw "Error! You must pass a product id. \nEx. `_id=60c552933dd7133a64b4248b yarn build`\n";
 
 function serve() {
   let server;
@@ -44,7 +39,7 @@ export default {
     sourcemap: !production,
     format: "iife",
     name: "app",
-    file: "public/build/rapyd-widget.js",
+    file: "public/build/rapyd-cart.js",
   },
   plugins: [
     svelte({
@@ -54,13 +49,6 @@ export default {
         dev: !production,
       },
       emitCss: false,
-    }),
-    replace({
-      process: JSON.stringify({
-        env: {
-          _id,
-        },
-      }),
     }),
     resolve({
       browser: true,

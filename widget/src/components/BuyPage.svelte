@@ -1,23 +1,16 @@
 <script>
-  export let productId;
-  export let imgSrc;
+  export let product;
 
   import { createEventDispatcher } from "svelte";
   import { createStore } from "../store";
 
-  const getIndex = () => $cart.findIndex((p) => p?.productId === productId);
+  const getIndex = () => $cart.findIndex((p) => p._id === product._id);
   const dispatch = createEventDispatcher();
   const cart = createStore("rapyd-cart");
 
   let index = getIndex();
   let prodCount = 0;
   if (index > -1) prodCount = $cart[index].prodCount;
-
-  function closePopup() {
-    dispatch("closePopup", {
-      text: "close",
-    });
-  }
 
   function goBack() {
     dispatch("goBack", {
@@ -28,28 +21,24 @@
   function addProduct() {
     let index = getIndex();
     prodCount += 1;
-
-    if (index < 0) $cart = [...$cart, { productId, prodCount, imgSrc }];
+    console.log($cart);
+    if (index < 0) $cart = [...$cart, { ...product, prodCount }];
     else $cart[index].prodCount = prodCount;
   }
 
   function removeProduct() {
-    if (prodCount >= 1) {
-      let index = getIndex();
+    let index = getIndex();
+    if (prodCount >= 1 && index >= 0) {
       prodCount -= 1;
-
-      if (index >= 0 && prodCount > 1) {
-        $cart[index].prodCount = prodCount;
-      } else $cart.splice(index, 1);
+      $cart[index].prodCount = prodCount;
     }
   }
 </script>
 
 <div class="buy">
-  <button class="close-btn" on:click={closePopup}>X</button>
   <h1>Cart</h1>
   <button class="back-btn" on:click={goBack}>back</button>
-  <img src={imgSrc} alt={productId} />
+  <img src={product.images[0]} alt={product.name} />
   <span>
     <button class="inner" on:click={addProduct}>+</button>
     <p class="inner">{prodCount}</p>
