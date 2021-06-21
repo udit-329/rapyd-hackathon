@@ -1,17 +1,16 @@
 <script>
   export let product;
+  export let cart;
 
   import { createStore } from "../store";
 
   const getIndex = () => $cart.findIndex((p) => p._id === product._id);
-  const cart = createStore("rapyd-cart");
 
   let prodCount = product.prodCount;
 
   function addProduct() {
     let index = getIndex();
     prodCount += 1;
-    console.log($cart);
     if (index < 0) $cart = [...$cart, { ...product, prodCount }];
     else $cart[index].prodCount = prodCount;
   }

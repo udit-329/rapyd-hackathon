@@ -1,41 +1,51 @@
-<script>
+<script lang="ts">
   import CartProduct from "./CartProduct.svelte";
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, tick } from "svelte";
   import { createStore } from "../store";
+
+  let checkoutOpened = false;
 
   const dispatch = createEventDispatcher();
   const cart = createStore("rapyd-cart");
+  const checkOutValid = async () => {
+    await tick;
+    checkoutOpened = Boolean($cart.find((product) => product.prodCount > 0));
+  };
 </script>
 
 <div class="cart-wrapper">
-  <div class="cart">
-    <div>
-      <svg
-        class="cart-exit"
-        on:click={() =>
-          dispatch("closeCart", {
-            text: "close",
-          })}
-        viewBox="0 0 24 24"
-        width="24px"
-        fill="#000"
-      >
-        <path d="M0 0h24v24H0V0z" fill="none" />
-        <path
-          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
-        />
-      </svg>
-    </div>
+  {#if !checkoutOpened}
+    <div class="cart">
+      <div>
+        <svg
+          class="cart-exit"
+          on:click={() =>
+            dispatch("closeCart", {
+              text: "close",
+            })}
+          viewBox="0 0 24 24"
+          width="24px"
+          fill="#000"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
+          />
+        </svg>
+      </div>
 
-    <h2>Cart</h2>
+      <h2>Cart</h2>
 
-    {#each $cart as product}
-      <CartProduct {product} />
-    {/each}
-    <div class="checkout-button-container">
-      <div class="checkout-button">Checkout</div>
+      {#each $cart as product}
+        <CartProduct {product} {cart} />
+      {/each}
+      <div class="checkout-button-container">
+        <div class="checkout-button" on:click={checkOutValid}>Checkout</div>
+      </div>
     </div>
-  </div>
+  {:else}
+    put checkout here
+  {/if}
 </div>
 
 <style>
