@@ -58,6 +58,7 @@
   .cart-product {
     display: flex;
     position: relative;
+    margin-bottom: 1.25vw;
   }
 
   .cart-product > div {

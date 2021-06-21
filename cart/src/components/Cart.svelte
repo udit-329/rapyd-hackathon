@@ -27,6 +27,8 @@
       </svg>
     </div>
 
+    <h2>Cart</h2>
+
     {#each $cart as product}
       <CartProduct {product} />
     {/each}
@@ -55,6 +57,10 @@
     animation: slide 0.5s forwards;
     animation-delay: 0.1s;
     background-color: #fff;
+  }
+
+  h2 {
+    text-align: center;
   }
 
   @-webkit-keyframes slide {
