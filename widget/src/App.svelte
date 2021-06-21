@@ -21,6 +21,7 @@
       <img src={data.product.images[0]} alt={data.product.name} />
       <h3>{data.product.name}</h3>
       <div class="product-widget-header" on:click={toggle}>Buy</div>
+      <div class="product-widget-footer"></div>
     </div>
   {/if}
 {:catch error}
@@ -29,8 +30,8 @@
 
 <style>
   .product-widget {
-    border-radius: 25px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.07), 0 15px 12px rgba(0, 0, 0, 0.06);
     width: 250px;
     text-align: center;
     padding: 1em 0 0 0;
@@ -38,14 +39,24 @@
   }
 
   .product-widget-header {
-    border-radius: 0 0 25px 25px;
-    background-color: #2b49ee;
+    border-radius: 2px 2px 2px 2px;
+    background-color: #878787;
     color: #fff;
+    margin-left:30%;
+    margin-right:30%;
+    padding: 5px 0;
+    transition: ease-in 0.2s;
   }
 
   .product-widget-header:hover {
-    background-color: hsl(231, 85%, 60%);
+    background-color: #e0e0e0;
+    color: #000;
     cursor: pointer;
+    transition: ease-in 0.1s;
+  }
+
+  .product-widget-footer {
+    height: 8px;
   }
 
   img {

@@ -14,9 +14,19 @@
     ProductPageOpen = !ProductPageOpen;
     BuyPageOpen = !BuyPageOpen;
   }
+
+  const clickBackgroundEvent = async(event) => {
+    console.log(event.target.classList)
+    if (event.target.classList.contains("widget-popup-wrapper")) {
+      event.target.classList.add("hide");
+      dispatch("closePopup", {
+          text: "close",
+        });
+    }
+  }
 </script>
 
-<div class="widget-popup-wrapper">
+<div class="widget-popup-wrapper" on:mousedown={clickBackgroundEvent}>
   <div class="widget-popup">
     <svg
       class="cart-exit"
@@ -40,6 +50,7 @@
     {#if BuyPageOpen}
       <BuyPage {product} on:goBack={productPageChange} />
     {/if}
+    <div class="hide"></div>
   </div>
 </div>
 
@@ -53,15 +64,23 @@
     right: 10%;
     left: 10%;
     height: 60%;
-    border-radius: 25px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -webkit-animation: slide 0.7s forwards;
-    animation: slide 0.7s forwards;
+    border-radius: 5px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.14);
+    -webkit-animation: slide 0.2s forwards;
+    animation: slide 0.2s forwards;
+    opacity: 1;
+    transition: opacity 0.2s;
+  }
+
+  .hide {
+    opacity: 0;
+    transition: opacity 0.2s;
   }
 
   .widget-popup-wrapper {
     z-index: 25;
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.36);
     right: 0;
     top: 0;
     bottom: 0;
