@@ -27,13 +27,16 @@
     padding: 1em;
     height: 25px;
     width: 25px;
-    background-color: #7684f6;
+    background-color: #BFBFBF;
     border-radius: 50%;
     display: inline-block;
   }
 
   .cart-button:hover {
-    background-color: hsl(233, 88%, 75%);
+    background-color: hsl(0, 0%, 80%);
     cursor: pointer;
+  }
+  .cart-button:hover > svg {
+    fill: hsl(0, 0%, 5%);
   }
 </style>

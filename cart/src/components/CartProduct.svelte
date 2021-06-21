@@ -34,7 +34,7 @@
       <div>
         <b>{product.name}</b>
         <br />
-        ${product.price}
+        ${(product.price * prodCount).toFixed(2)}
       </div>
       <div class="cart-product-count">
         <div class="count-increment" on:click={removeProduct}>
@@ -84,6 +84,9 @@
     position: absolute;
     right: 0;
     bottom: 0;
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
   }
 
   .cart-product-count > * {

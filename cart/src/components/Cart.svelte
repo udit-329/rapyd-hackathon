@@ -32,6 +32,9 @@
     {#each $cart as product}
       <CartProduct {product} />
     {/each}
+    <div class="checkout-button-container">
+      <div class="checkout-button">Checkout</div>
+    </div>
   </div>
 </div>
 
@@ -57,6 +60,8 @@
     animation: slide 0.5s forwards;
     animation-delay: 0.1s;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
   }
 
   h2 {
@@ -76,5 +81,27 @@
   }
   .cart-exit:hover {
     cursor: pointer;
+  }
+
+  .checkout-button-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .checkout-button {
+    border-radius: 12.5px;
+    height: 36px;
+    text-align: center;
+    background-color: #252525;
+    color: white;
+    line-height: 36px;
+  }
+
+  .checkout-button:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 20%);
   }
 </style>
