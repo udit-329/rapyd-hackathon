@@ -1,6 +1,8 @@
 <script lang="ts">
-  import CartProduct from "./CartProduct.svelte";
   import { createEventDispatcher, tick } from "svelte";
+  import CartProduct from "./CartProduct.svelte";
+  import Checkout from "./Checkout.svelte";
+
   import { createStore } from "../store";
 
   let checkoutOpened = false;
@@ -44,7 +46,11 @@
       </div>
     </div>
   {:else}
-    put checkout here
+    <Checkout
+      on:closePopup={() => {
+        checkoutOpened = false;
+      }}
+    />
   {/if}
 </div>
 
