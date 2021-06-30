@@ -21,7 +21,6 @@
   function addProduct() {
     let index = getIndex();
     prodCount += 1;
-    console.log($cart);
     if (index < 0) $cart = [...$cart, { ...product, prodCount }];
     else $cart[index].prodCount = prodCount;
   }
