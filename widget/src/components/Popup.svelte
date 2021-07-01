@@ -70,6 +70,7 @@
     animation: slide 0.2s forwards;
     opacity: 1;
     transition: opacity 0.2s;
+    overflow: auto;
   }
 
   .hide {
