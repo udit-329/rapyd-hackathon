@@ -18,7 +18,6 @@
   const clickBackgroundEvent = async(event) => {
     console.log(event.target.classList)
     if (event.target.classList.contains("widget-popup-wrapper")) {
-      event.target.classList.add("hide");
       dispatch("closePopup", {
           text: "close",
         });
@@ -55,6 +54,15 @@
 </div>
 
 <style>
+  .widget-popup-wrapper {
+    z-index: 25;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.36);
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+  }
   .widget-popup {
     position: fixed;
     background-color: #fff;

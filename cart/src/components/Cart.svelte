@@ -13,6 +13,15 @@
     await tick;
     checkoutOpened = Boolean($cart.find((product) => product.prodCount > 0));
   };
+
+  const clickBackgroundEvent = async(event) => {
+    console.log(event.target.classList)
+    if (event.target.classList.contains("cart-wrapper")) {
+      dispatch("closeCart", {
+          text: "close",
+        });
+    }
+  }
 </script>
 
 <div class="cart-wrapper">
@@ -56,7 +65,9 @@
 
 <style>
   .cart-wrapper {
+    z-index: 25;
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.36);
     right: 0;
     top: 0;
     bottom: 0;
@@ -65,16 +76,17 @@
   }
   .cart {
     position: fixed;
-    border-radius: 25px 0 0 25px;
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
     width: 30vw;
     padding: 1vw;
     right: -40vw;
     top: 0;
     bottom: 0;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -webkit-animation: slide 0.5s forwards;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.14);
+    -webkit-animation: slide 0.2s forwards;
     -webkit-animation-delay: 0.1s;
-    animation: slide 0.5s forwards;
+    animation: slide 0.2s forwards;
     animation-delay: 0.1s;
     background-color: #fff;
     display: flex;
