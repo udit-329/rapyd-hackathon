@@ -61,15 +61,15 @@
   }
 
   .cart-product > div {
-    padding: 1vw;
+    padding: 0.4vw;
   }
 
   .cart-product-img-wrapper {
-    width: 20%;
+    width: 25%;
     max-width: 100px;
     min-width: 60px;
-    background-color: #f2f2f2;
-    border-radius: 12.5px;
+    margin-right: 5px;
+    box-shadow: 0 1px 18px rgb(0 0 0 / 3%), 0 1px 12px rgb(0 0 0 / 5%);
   }
 
   img {

@@ -20,7 +20,7 @@
     <div class="product-widget">
       <img src={data.product.images[0]} alt={data.product.name} />
       <h3>{data.product.name}</h3>
-      <div class="product-widget-header" on:click={toggle}>Buy</div>
+      <div class="buy-button" on:click={toggle}>Buy</div>
       <div class="product-widget-footer"></div>
     </div>
   {/if}
@@ -38,7 +38,7 @@
     margin: 0 auto;
   }
 
-  .product-widget-header {
+  .buy-button {
     border-radius: 2px 2px 2px 2px;
     background-color: #878787;
     color: #fff;
@@ -48,7 +48,7 @@
     transition: ease-in 0.2s;
   }
 
-  .product-widget-header:hover {
+  .buy-button:hover {
     background-color: #e0e0e0;
     color: #000;
     cursor: pointer;

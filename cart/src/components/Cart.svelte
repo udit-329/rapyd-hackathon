@@ -24,7 +24,7 @@
   }
 </script>
 
-<div class="cart-wrapper">
+<div class="cart-wrapper" on:mousedown={clickBackgroundEvent}>
   {#if !checkoutOpened}
     <div class="cart">
       <div>
@@ -72,7 +72,6 @@
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
   }
   .cart {
     position: fixed;
@@ -121,16 +120,20 @@
   }
 
   .checkout-button {
-    border-radius: 12.5px;
-    height: 36px;
+    border-radius: 2px 2px 2px 2px;
     text-align: center;
-    background-color: #252525;
-    color: white;
-    line-height: 36px;
+    background-color: #878787;
+    color: #fff;
+    margin-left:30%;
+    margin-right:30%;
+    padding: 8px 0;
+    transition: ease-in 0.2s;
   }
 
   .checkout-button:hover {
+    background-color: #e0e0e0;
+    color: #000;
     cursor: pointer;
-    background-color: hsl(0, 0%, 20%);
+    transition: ease-in 0.1s;
   }
 </style>

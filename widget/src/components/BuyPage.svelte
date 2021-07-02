@@ -32,27 +32,25 @@
       $cart[index].prodCount = prodCount;
     }
   }
+
+  function openCart() {
+    dispatch("openCart", {
+      text: "back",
+    });
+  }
 </script>
 
 <div class="buy">
-  <h1>Cart</h1>
   <button class="back-btn" on:click={goBack}>back</button>
-  <img src={product.images[0]} alt={product.name} />
   <span>
     <button class="inner" on:click={addProduct}>+</button>
     <p class="inner">{prodCount}</p>
     <button class="inner" on:click={removeProduct}>-</button>
   </span>
-  <button class="buy-btn">buy</button>
-
-  <!-- <p>Product id is {productId}</p> -->
+  <button class="buy-btn" on:click={openCart}>buy</button>
 </div>
 
 <style>
-  img {
-    height: 15vh;
-    width: auto;
-  }
   .inner {
     display: inline-block;
   }

@@ -9,6 +9,8 @@
 
   let ProductPageOpen = true;
   let BuyPageOpen = false;
+  let imageNumber = 0;
+  
 
   function productPageChange() {
     ProductPageOpen = !ProductPageOpen;
@@ -21,6 +23,22 @@
       dispatch("closePopup", {
           text: "close",
         });
+    }
+  }
+  const prevPic = () => {
+    if (imageNumber > 0) {
+      imageNumber = imageNumber - 1
+    }
+    else {
+      imageNumber = (product.images.length - 1)
+    }
+  }
+  const nextPic = () => {
+    if (imageNumber < (product.images.length - 1))  {
+      imageNumber = imageNumber + 1
+    }
+    else {
+      imageNumber = 0
     }
   }
 </script>
@@ -42,13 +60,27 @@
         d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"
       /></svg
     >
-    {#if ProductPageOpen}
-      <ProductPage {product} on:buyProduct={productPageChange} />
-    {/if}
+    <div class="product">
+      <div class="image">
+        <div class="image-box">
+          <img src={product.images[imageNumber]} alt={product.name} />
+        </div>
+        <div class="image-buttons">
+          <div class="prev-pic" on:click={prevPic}>&lt;</div>
+          <div class="next-pic" on:click={nextPic}>&gt;</div>
+        </div>
+      </div>
 
-    {#if BuyPageOpen}
-      <BuyPage {product} on:goBack={productPageChange} />
-    {/if}
+      <div class="body">
+        {#if ProductPageOpen}
+          <ProductPage {product} on:buyProduct={productPageChange} />
+        {/if}
+
+        {#if BuyPageOpen}
+          <BuyPage {product} on:goBack={productPageChange} />
+        {/if}
+      </div>
+    </div>
     <div class="hide"></div>
   </div>
 </div>
@@ -78,12 +110,13 @@
     animation: slide 0.2s forwards;
     opacity: 1;
     transition: opacity 0.2s;
-    overflow: auto;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
   .hide {
     opacity: 0;
-    transition: opacity 0.2s;
   }
 
   .widget-popup-wrapper {
@@ -95,6 +128,60 @@
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.3)
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    box-shadow: 0 19px 38px rgb(0 0 0 / 1%), 0 15px 12px rgb(0 0 0 / 3%);
+  }
+  .image {
+    float: left;
+    width: 25%;
+    border-right-style: solid;
+    border-color: #ededed;
+    border-width: 1.5px;
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 4%;
+    padding-bottom: 1%;
+    height: 100%;
+  }
+  .body {
+    float: right;
+    width: 70%;
+    height: 100%;
+    overflow: auto;
+  }
+  .image-box {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+  }
+  .image-buttons {
+    padding-top: 5%;
+  }
+  .prev-pic {
+    float: left;
+    font-size: 2em;
+    padding-left: 20%;
+  }
+  .prev-pic:hover {
+    float: left;
+    cursor: pointer;
+  }
+  .next-pic {
+    float: right;
+    font-size: 2em;
+    padding-right: 20%;
+  }
+  .next-pic:hover {
+    float: right;
+    cursor: pointer;
+  }
+  .product {
+    height: 80%;
   }
 
   @-webkit-keyframes slide {
