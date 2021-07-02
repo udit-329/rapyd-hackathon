@@ -117,6 +117,7 @@
 
   .hide {
     opacity: 0;
+    transition: opacity 0.2s;
   }
 
   .widget-popup-wrapper {
