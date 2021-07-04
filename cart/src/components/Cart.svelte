@@ -64,6 +64,13 @@
 </div>
 
 <style>
+  h2 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.25em;
+    font-size: 28px;
+  }
   .cart-wrapper {
     z-index: 25;
     position: fixed;
@@ -120,20 +127,26 @@
   }
 
   .checkout-button {
-    border-radius: 2px 2px 2px 2px;
-    text-align: center;
-    background-color: #878787;
+    width: 24%;
+    border-radius: 6px;
+    background-color: #292929;
     color: #fff;
-    margin-left:30%;
-    margin-right:30%;
-    padding: 8px 0;
-    transition: ease-in 0.2s;
+    padding: 3% 8%;
+    text-align: center;
+    transition: ease-in 0.13s;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 6%), 0 8px 10px rgb(0 0 0 / 5%);
+    margin-top: 2%;
+    margin-left: 30%;
+    margin-right: 30%;
   }
 
   .checkout-button:hover {
-    background-color: #e0e0e0;
+    background-color: #f5f5f5;
     color: #000;
     cursor: pointer;
-    transition: ease-in 0.1s;
+    transition: ease-in 0.08s;
   }
 </style>

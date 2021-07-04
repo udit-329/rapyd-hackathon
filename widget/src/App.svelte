@@ -20,7 +20,8 @@
     <div class="product-widget">
       <img src={data.product.images[0]} alt={data.product.name} />
       <h3>{data.product.name}</h3>
-      <div class="buy-button" on:click={toggle}>Buy</div>
+      <h5>${data.product.price} CAD</h5>
+      <div class="buy-button" on:click={toggle}>View</div>
       <div class="product-widget-footer"></div>
     </div>
   {/if}
@@ -29,9 +30,22 @@
 {/await}
 
 <style>
+  h3 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 500;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.25em;
+  }
+  h5 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 600;
+    margin-block-start: 0;
+    margin-block-end: 0.75em;
+    color: #7d7675;
+  }
   .product-widget {
     border-radius: 5px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.07), 0 15px 12px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 5px 20px rgb(0 0 0 / 7%), 0 10px 12px rgb(0 0 0 / 6%);
     width: 250px;
     text-align: center;
     padding: 1em 0 0 0;
@@ -39,20 +53,23 @@
   }
 
   .buy-button {
-    border-radius: 2px 2px 2px 2px;
-    background-color: #878787;
-    color: #fff;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    color: #000;
     margin-left:30%;
     margin-right:30%;
     padding: 5px 0;
-    transition: ease-in 0.2s;
+    transition: ease-in 0.13s;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 6%), 0 8px 10px rgb(0 0 0 / 5%);
   }
 
   .buy-button:hover {
-    background-color: #e0e0e0;
-    color: #000;
+    background-color: #292929;
+    color: #fff;
     cursor: pointer;
-    transition: ease-in 0.1s;
+    transition: ease-in 0.08s;
   }
 
   .product-widget-footer {

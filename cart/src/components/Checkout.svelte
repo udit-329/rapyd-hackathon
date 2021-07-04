@@ -49,6 +49,7 @@
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.14);
     -webkit-animation: slide 0.2s forwards;
     animation: slide 0.2s forwards;
+    overflow: auto;
   }
 
   .checkout-popup-wrapper {

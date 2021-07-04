@@ -3,20 +3,31 @@
 
   import { createEventDispatcher } from "svelte";
   import ProductPage from "./ProductPage.svelte";
-  import BuyPage from "./BuyPage.svelte";
 
   const dispatch = createEventDispatcher();
 
   let ProductPageOpen = true;
-  let BuyPageOpen = false;
   let imageNumber = 0;
-  
+  let numberOfImages = product.images.length;
 
-  function productPageChange() {
-    ProductPageOpen = !ProductPageOpen;
-    BuyPageOpen = !BuyPageOpen;
+  function changeImage(i) {
+    imageNumber = i;
+    activeImgBorder();
   }
-
+  function activeImgBorder() {
+    for (let i = 0; i < numberOfImages; i++) {
+      var id = 'im-' + i;
+      var imagePreview = document.getElementById(id);
+      if (i == imageNumber) {
+        imagePreview.classList.add('image-preview-active')
+      }
+      else {
+        if (imagePreview.classList.contains('image-preview-active')) {
+          imagePreview.classList.remove('image-preview-active')
+        }
+      }
+    }
+  }
   const clickBackgroundEvent = async(event) => {
     console.log(event.target.classList)
     if (event.target.classList.contains("widget-popup-wrapper")) {
@@ -30,16 +41,18 @@
       imageNumber = imageNumber - 1
     }
     else {
-      imageNumber = (product.images.length - 1)
+      imageNumber = (numberOfImages - 1)
     }
+    activeImgBorder();
   }
   const nextPic = () => {
-    if (imageNumber < (product.images.length - 1))  {
+    if (imageNumber < (numberOfImages - 1))  {
       imageNumber = imageNumber + 1
     }
     else {
       imageNumber = 0
     }
+    activeImgBorder();
   }
 </script>
 
@@ -64,28 +77,91 @@
       <div class="image">
         <div class="image-box">
           <img src={product.images[imageNumber]} alt={product.name} />
+          <div class="image-buttons-wrapper">
+            <div class="image-buttons previous" on:click={prevPic}>
+              <svg viewbox="0 0 100 100">
+                <path class="arrow" d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z" transform=" translate(15,0)">
+              </svg>
+            </div>
+            <div class="image-buttons next" on:click={nextPic}>
+              <svg viewbox="0 0 100 100">
+                <path class="arrow" d="M 50,0 L 60,10 L 20,50 L 60,90 L 50,100 L 0,50 Z "transform="translate(85,100) rotate(180) ">
+              </svg>
+            </div>
+          </div>
         </div>
-        <div class="image-buttons">
-          <div class="prev-pic" on:click={prevPic}>&lt;</div>
-          <div class="next-pic" on:click={nextPic}>&gt;</div>
-        </div>
+          <div class="image-preview-wrapper">
+            {#each Array(numberOfImages) as _,i}
+              {#if i == 0}
+                <div id="im-{i}" class="image-preview image-preview-active im-{i}">
+                  <img src={product.images[i]} alt={product.name} on:click={() => changeImage(i)}/>
+                </div>
+              {:else}
+                <div id="im-{i}" class="image-preview im-{i}">
+                  <img src={product.images[i]} alt={product.name} on:click={() => changeImage(i)}/>
+                </div>
+              {/if}
+            {/each}
+          </div>
       </div>
 
       <div class="body">
         {#if ProductPageOpen}
-          <ProductPage {product} on:buyProduct={productPageChange} />
-        {/if}
-
-        {#if BuyPageOpen}
-          <BuyPage {product} on:goBack={productPageChange} />
+          <ProductPage {product}/> 
         {/if}
       </div>
     </div>
     <div class="hide"></div>
   </div>
+  <div class="image-preview-active hide"></div>"
 </div>
 
 <style>
+  .cart-exit:hover {
+
+    background: #f0f0f0;
+
+  }
+  .image-buttons-wrapper {
+    padding-bottom: 40%;
+    margin: 20px 0;
+    position: relative;
+    top:-90%;
+    left: -20%;
+    width: 140%;
+  }
+  .image-buttons {
+    position: absolute;
+    top: 50%;
+    width: 10%;
+    padding-bottom: 10%;
+    border-radius: 50%;
+    background: white;
+    transform: translateY(-50%);
+  } 
+  .image-buttons:hover {
+    cursor: pointer;
+    background: #f0f0f0;
+  }
+
+  .previous { 
+    left: 10px; 
+  }
+  .next { 
+    right: 10px; 
+  }
+
+  .image-buttons svg {
+    position: absolute;
+    left: 20%;
+    top: 20%;
+    width: 60%;
+    height: 60%;
+  }
+
+  .arrow { 
+    fill: #333; 
+  }
   .widget-popup-wrapper {
     z-index: 25;
     position: fixed;
@@ -114,12 +190,9 @@
     display: flex;
     flex-direction: column;
   }
-
   .hide {
     opacity: 0;
-    transition: opacity 0.2s;
   }
-
   .widget-popup-wrapper {
     z-index: 25;
     position: fixed;
@@ -130,7 +203,6 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.3)
   }
-
   img {
     height: 100%;
     width: 100%;
@@ -139,7 +211,7 @@
   }
   .image {
     float: left;
-    width: 25%;
+    width: 30%;
     border-right-style: solid;
     border-color: #ededed;
     border-width: 1.5px;
@@ -151,38 +223,39 @@
   }
   .body {
     float: right;
-    width: 70%;
+    width: 65%;
     height: 100%;
     overflow: auto;
   }
   .image-box {
     width: 80%;
-    height: 80%;
+    height: 60%;
     margin: auto;
-  }
-  .image-buttons {
-    padding-top: 5%;
-  }
-  .prev-pic {
-    float: left;
-    font-size: 2em;
-    padding-left: 20%;
-  }
-  .prev-pic:hover {
-    float: left;
-    cursor: pointer;
-  }
-  .next-pic {
-    float: right;
-    font-size: 2em;
-    padding-right: 20%;
-  }
-  .next-pic:hover {
-    float: right;
-    cursor: pointer;
+    border: solid;
+    border-width: 1px;
+    border-color: #fafafa;
   }
   .product {
     height: 80%;
+  }
+  .image-preview-wrapper {
+    display: inline-flex;
+    height: 20%;
+    margin-top: 5%;
+    margin-left: 2%;
+  }
+  .image-preview {
+    height: 100%;
+    width: 20%;
+    margin-right: 3%;
+    border: solid;
+    border-width: 1px;
+    border-color: #f2f2f2;
+    cursor: pointer;
+  }
+  .image-preview-active {
+    border-color: #c2c2c2 !important;
+    border-width: 2px !important;
   }
 
   @-webkit-keyframes slide {
