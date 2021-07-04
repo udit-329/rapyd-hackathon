@@ -50,6 +50,7 @@
     -webkit-animation: slide 0.2s forwards;
     animation: slide 0.2s forwards;
     overflow: auto;
+    width: 74%;
   }
 
   .checkout-popup-wrapper {
