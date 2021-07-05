@@ -13,9 +13,18 @@
     await tick;
     checkoutOpened = Boolean($cart.find((product) => product.prodCount > 0));
   };
+
+  const clickBackgroundEvent = async(event) => {
+    console.log(event.target.classList)
+    if (event.target.classList.contains("cart-wrapper")) {
+      dispatch("closeCart", {
+          text: "close",
+        });
+    }
+  }
 </script>
 
-<div class="cart-wrapper">
+<div class="cart-wrapper" on:mousedown={clickBackgroundEvent}>
   {#if !checkoutOpened}
     <div class="cart">
       <div>
@@ -55,26 +64,35 @@
 </div>
 
 <style>
+  h2 {
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 500;
+    margin-block-start: 0.3em;
+    margin-block-end: 0.25em;
+    font-size: 28px;
+  }
   .cart-wrapper {
+    z-index: 25;
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.36);
     right: 0;
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
   }
   .cart {
     position: fixed;
-    border-radius: 25px 0 0 25px;
+    background-color: #fff;
+    border-radius: 5px 0 0 5px;
     width: 30vw;
     padding: 1vw;
     right: -40vw;
     top: 0;
     bottom: 0;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -webkit-animation: slide 0.5s forwards;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.1), 0 15px 12px rgba(0, 0, 0, 0.14);
+    -webkit-animation: slide 0.2s forwards;
     -webkit-animation-delay: 0.1s;
-    animation: slide 0.5s forwards;
+    animation: slide 0.2s forwards;
     animation-delay: 0.1s;
     background-color: #fff;
     display: flex;
@@ -109,16 +127,26 @@
   }
 
   .checkout-button {
-    border-radius: 12.5px;
-    height: 36px;
+    width: 24%;
+    border-radius: 6px;
+    background-color: #292929;
+    color: #fff;
+    padding: 3% 8%;
     text-align: center;
-    background-color: #252525;
-    color: white;
-    line-height: 36px;
+    transition: ease-in 0.13s;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    font-size: 19px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 6%), 0 8px 10px rgb(0 0 0 / 5%);
+    margin-top: 2%;
+    margin-left: 30%;
+    margin-right: 30%;
   }
 
   .checkout-button:hover {
+    background-color: #f5f5f5;
+    color: #000;
     cursor: pointer;
-    background-color: hsl(0, 0%, 20%);
+    transition: ease-in 0.08s;
   }
 </style>

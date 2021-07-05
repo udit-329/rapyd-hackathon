@@ -31,7 +31,14 @@
 
 <div>
     {#if info?.redirect_url}
-    <iframe title="Rapyd Checkout" frameBorder="0" src={info?.redirect_url} width="100%" height="600">
+    <iframe class="rapyd-checkout" title="Rapyd Checkout" frameBorder="0" src={info?.redirect_url} width="100%" height="600">
     </iframe>
     {/if}
 </div>
+
+<style>
+  .rapyd-checkout {
+    overflow-x: scroll;
+    overflow-y: scroll;
+  }
+</style>

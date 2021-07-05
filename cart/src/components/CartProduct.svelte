@@ -30,10 +30,13 @@
       <img src={product.images[0]} alt={product.name} />
     </div>
     <div>
-      <div>
-        <b>{product.name}</b>
-        <br />
-        ${(product.price * prodCount).toFixed(2)}
+      <div class="cart-product-info">
+        <div class="cart-product-name">{product.name}</div>
+        <div class="cart-product-price-wrapper">
+          <div class="cart-subtotal">Subtotal: </div>
+          <div class="cart-product-price">${(product.price * prodCount).toFixed(2)}</div>
+        </div>
+        
       </div>
       <div class="cart-product-count">
         <div class="count-increment" on:click={removeProduct}>
@@ -54,6 +57,40 @@
 {/if}
 
 <style>
+  .cart-product-name {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-block-start: 0;
+  }
+  .cart-product-price-wrapper {
+    display: flex;
+  }
+  .cart-subtotal {
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    margin-block-start: 0.33em;
+    margin-right: 4%;
+  }
+  .cart-product-price {
+    font-family: Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    color: #5e5d5c;
+    margin-block-start: 0.33em;
+  }
+  b {
+    font-family: Helvetica, sans-serif;
+    margin-left: 1%;
+    margin-right: 1%;
+    font-size: 16px;
+    padding-top: 1%;
+  }
+  .cart-product-info {
+    margin-top: 7%;
+  }
   .cart-product {
     display: flex;
     position: relative;
@@ -61,15 +98,15 @@
   }
 
   .cart-product > div {
-    padding: 1vw;
+    padding: 0.4vw;
   }
 
   .cart-product-img-wrapper {
-    width: 20%;
+    width: 25%;
     max-width: 100px;
     min-width: 60px;
-    background-color: #f2f2f2;
-    border-radius: 12.5px;
+    margin-right: 5px;
+    box-shadow: 0 1px 18px rgb(0 0 0 / 3%), 0 1px 12px rgb(0 0 0 / 5%);
   }
 
   img {

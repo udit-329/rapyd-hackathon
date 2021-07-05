@@ -3,9 +3,18 @@
   import RapydCheckout from "./RapydCheckout.svelte"
 
   const dispatch = createEventDispatcher();
+
+  const clickBackgroundEvent = async(event) => {
+    console.log(event.target.classList)
+    if (event.target.classList.contains("checkout-popup-wrapper")) {
+      dispatch("closePopup", {
+          text: "close",
+        });
+    }
+  }
 </script>
 
-<div class="checkout-popup-wrapper">
+<div class="checkout-popup-wrapper" on:mousedown={clickBackgroundEvent}>
   <div class="checkout-popup">
     <svg
       class="cart-exit"
@@ -36,10 +45,12 @@
     right: 10%;
     left: 10%;
     height: 60%;
-    border-radius: 25px;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
-    -webkit-animation: slide 0.7s forwards;
-    animation: slide 0.7s forwards;
+    border-radius: 5px;
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.12), 0 15px 12px rgba(0, 0, 0, 0.14);
+    -webkit-animation: slide 0.2s forwards;
+    animation: slide 0.2s forwards;
+    overflow: auto;
+    width: 74%;
   }
 
   .checkout-popup-wrapper {
@@ -49,7 +60,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    
   }
 
   @-webkit-keyframes slide {
